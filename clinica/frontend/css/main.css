@@ -1,0 +1,1641 @@
+/* ============================================================
+   Clinica Los Reyes - Estilos globales
+   Paleta: beige, lila, rosa y tonos complementarios
+   ============================================================ */
+
+/* Variables de color y tipografia */
+:root {
+  --beige-claro:    #fdf6ee;
+  --beige-medio:    #f5e6d3;
+  --beige-oscuro:   #e8d5bc;
+  --lila-claro:     #e8e0f0;
+  --lila-medio:     #c5aee0;
+  --lila-oscuro:    #9b7ec8;
+  --lila-fuerte:    #7c5ca8;
+  --rosa-claro:     #fce4ec;
+  --rosa-medio:     #f4a7c0;
+  --rosa-oscuro:    #e07898;
+  --rosa-fuerte:    #c85878;
+  --crema:          #fffaf4;
+  --texto-oscuro:   #3a2d40;
+  --texto-medio:    #6b5878;
+  --texto-suave:    #a090b0;
+  --blanco:         #ffffff;
+  --sombra-suave:   0 2px 16px rgba(124, 92, 168, 0.10);
+  --sombra-media:   0 4px 32px rgba(124, 92, 168, 0.18);
+  --radio:          14px;
+  --radio-grande:   24px;
+  --transicion:     0.25s ease;
+}
+
+/* Reset base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--texto-oscuro);
+  background: var(--crema);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   UTILIDADES GENERALES
+   ============================================================ */
+
+.oculto { display: none !important; }
+
+.pantalla {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.pantalla.activa { display: block; }
+
+/* Mensajes de retroalimentacion */
+.mensaje-error {
+  background: #fce4ec;
+  color: var(--rosa-fuerte);
+  border: 1px solid var(--rosa-medio);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+
+.mensaje-exito {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+
+/* Indicador de carga */
+.cargando {
+  text-align: center;
+  color: var(--texto-suave);
+  padding: 40px 20px;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   CAMPOS DE FORMULARIO
+   ============================================================ */
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.campo-grupo label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--texto-medio);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.campo-grupo input,
+.campo-grupo select,
+.campo-grupo textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--beige-oscuro);
+  border-radius: var(--radio);
+  background: var(--blanco);
+  color: var(--texto-oscuro);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+  outline: none;
+}
+
+.campo-grupo input:focus,
+.campo-grupo select:focus,
+.campo-grupo textarea:focus {
+  border-color: var(--lila-oscuro);
+  box-shadow: 0 0 0 3px rgba(155, 126, 200, 0.15);
+}
+
+.campo-grupo textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Grupos de campos en dos columnas */
+.campos-dobles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+
+.btn-principal {
+  width: 100%;
+  padding: 13px 20px;
+  background: linear-gradient(135deg, var(--lila-fuerte), var(--rosa-oscuro));
+  color: var(--blanco);
+  border: none;
+  border-radius: var(--radio);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity var(--transicion), transform var(--transicion), box-shadow var(--transicion);
+  box-shadow: 0 4px 14px rgba(124, 92, 168, 0.30);
+  margin-top: 8px;
+}
+
+.btn-principal:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(124, 92, 168, 0.38);
+}
+
+.btn-principal:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-principal:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-secundario {
+  padding: 10px 20px;
+  background: var(--lila-claro);
+  color: var(--lila-fuerte);
+  border: 1.5px solid var(--lila-medio);
+  border-radius: var(--radio);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transicion), border-color var(--transicion);
+}
+
+.btn-secundario:hover {
+  background: var(--lila-medio);
+  border-color: var(--lila-oscuro);
+}
+
+.btn-texto {
+  background: none;
+  border: none;
+  color: var(--lila-fuerte);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.btn-texto:hover {
+  color: var(--rosa-oscuro);
+}
+
+/* Botones de accion pequenos en tablas y tarjetas */
+.btn-accion {
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  font-family: 'DM Sans', sans-serif;
+  transition: opacity var(--transicion);
+}
+
+.btn-accion:hover { opacity: 0.8; }
+
+.btn-accion.cancelar {
+  background: var(--rosa-claro);
+  color: var(--rosa-fuerte);
+  border-color: var(--rosa-medio);
+}
+
+.btn-accion.confirmar {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-color: #a5d6a7;
+}
+
+.btn-accion.editar {
+  background: var(--lila-claro);
+  color: var(--lila-fuerte);
+  border-color: var(--lila-medio);
+}
+
+/* ============================================================
+   PANTALLA DE AUTENTICACION
+   ============================================================ */
+
+#pantalla-auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(145deg, var(--beige-claro) 0%, var(--lila-claro) 50%, var(--rosa-claro) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Orbs decorativos de fondo */
+.auth-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.auth-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.35;
+}
+
+.orb-1 {
+  width: 420px; height: 420px;
+  background: var(--lila-medio);
+  top: -120px; left: -100px;
+}
+
+.orb-2 {
+  width: 300px; height: 300px;
+  background: var(--rosa-medio);
+  bottom: -80px; right: -60px;
+}
+
+.orb-3 {
+  width: 200px; height: 200px;
+  background: var(--beige-oscuro);
+  top: 50%; left: 60%;
+}
+
+/* Tarjeta central de autenticacion */
+.auth-container {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.70);
+  border-radius: var(--radio-grande);
+  padding: 44px 48px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: var(--sombra-media);
+}
+
+/* Marca / logo */
+.auth-marca {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.marca-icono {
+  width: 60px; height: 60px;
+  background: url('/assets/logo-clinica-los-reyes.svg') center / contain no-repeat;
+  border-radius: 18px;
+  margin: 0 auto 14px;
+}
+
+/* Cruz medica simple con pseudo-elementos */
+.marca-icono::before,
+.marca-icono::after {
+  display: none;
+}
+
+.marca-icono::before {
+  width: 6px; height: 26px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.marca-icono::after {
+  width: 26px; height: 6px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.marca-icono.small {
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.marca-icono.small::before { width: 3px; height: 14px; }
+.marca-icono.small::after  { width: 14px; height: 3px; }
+
+.marca-nombre {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  line-height: 1.2;
+}
+
+.marca-subtitulo {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  margin-top: 4px;
+}
+
+.form-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 22px;
+}
+
+.auth-cambio {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+}
+
+/* ============================================================
+   BARRA DE NAVEGACION
+   ============================================================ */
+
+.navbar {
+  height: 64px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid var(--beige-oscuro);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(124, 92, 168, 0.08);
+}
+
+.navbar-admin {
+  background: rgba(124, 92, 168, 0.08);
+  border-bottom-color: var(--lila-medio);
+}
+
+.navbar-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+}
+
+.badge-admin {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background: var(--lila-fuerte);
+  color: var(--blanco);
+  padding: 2px 8px;
+  border-radius: 20px;
+  vertical-align: middle;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-btn {
+  padding: 8px 18px;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--texto-medio);
+  cursor: pointer;
+  transition: background var(--transicion), color var(--transicion);
+}
+
+.nav-btn:hover {
+  background: var(--lila-claro);
+  color: var(--lila-fuerte);
+}
+
+.nav-btn.activo {
+  background: var(--lila-claro);
+  color: var(--lila-fuerte);
+  font-weight: 500;
+}
+
+.navbar-usuario {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.88rem;
+  color: var(--texto-medio);
+}
+
+.btn-cerrar-sesion {
+  padding: 6px 14px;
+  background: var(--beige-medio);
+  border: 1px solid var(--beige-oscuro);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--texto-medio);
+  cursor: pointer;
+  transition: background var(--transicion);
+}
+
+.btn-cerrar-sesion:hover {
+  background: var(--rosa-claro);
+  border-color: var(--rosa-medio);
+  color: var(--rosa-fuerte);
+}
+
+/* ============================================================
+   CONTENIDO PRINCIPAL Y SECCIONES
+   ============================================================ */
+
+.contenido-principal {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 36px 32px;
+}
+
+.seccion { display: none; }
+.seccion.activa { display: block; }
+
+.seccion-encabezado {
+  margin-bottom: 32px;
+}
+
+.seccion-encabezado h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  line-height: 1.2;
+}
+
+.seccion-encabezado p {
+  color: var(--texto-suave);
+  margin-top: 6px;
+  font-size: 0.92rem;
+}
+
+/* ============================================================
+   PANEL DE AGENDADO (PASOS)
+   ============================================================ */
+
+.panel-agendar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.paso-card {
+  background: var(--blanco);
+  border: 1.5px solid var(--beige-oscuro);
+  border-radius: var(--radio-grande);
+  padding: 28px;
+  display: flex;
+  gap: 18px;
+  box-shadow: var(--sombra-suave);
+  transition: border-color var(--transicion);
+}
+
+.paso-card:hover {
+  border-color: var(--lila-medio);
+}
+
+/* Paso 4 ocupa todo el ancho */
+#paso-4 {
+  grid-column: 1 / -1;
+}
+
+.paso-numero {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--lila-claro), var(--rosa-claro));
+  border: 2px solid var(--lila-medio);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--lila-fuerte);
+  flex-shrink: 0;
+}
+
+.paso-contenido {
+  flex: 1;
+  min-width: 0;
+}
+
+.paso-contenido h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   CALENDARIO
+   ============================================================ */
+
+.calendario-wrap {
+  user-select: none;
+}
+
+.cal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+#cal-titulo-mes {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  text-transform: capitalize;
+}
+
+.cal-btn-nav {
+  width: 30px; height: 30px;
+  background: var(--lila-claro);
+  border: 1px solid var(--lila-medio);
+  border-radius: 8px;
+  color: var(--lila-fuerte);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transicion);
+}
+
+.cal-btn-nav:hover { background: var(--lila-medio); }
+
+.cal-dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.cal-dias-semana span {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.cal-dia {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background var(--transicion), color var(--transicion);
+  border: 1.5px solid transparent;
+}
+
+.cal-dia:hover:not(.inactivo):not(.pasado) {
+  background: var(--lila-claro);
+  border-color: var(--lila-medio);
+  color: var(--lila-fuerte);
+}
+
+.cal-dia.hoy {
+  font-weight: 700;
+  color: var(--lila-fuerte);
+  border-color: var(--lila-medio);
+}
+
+.cal-dia.seleccionado {
+  background: linear-gradient(135deg, var(--lila-fuerte), var(--rosa-oscuro));
+  color: var(--blanco);
+  border-color: transparent;
+  font-weight: 500;
+}
+
+.cal-dia.inactivo,
+.cal-dia.pasado {
+  color: var(--beige-oscuro);
+  cursor: default;
+}
+
+.cal-dia.otro-mes {
+  color: var(--beige-oscuro);
+}
+
+/* ============================================================
+   SLOTS DE HORARIO
+   ============================================================ */
+
+.slots-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 60px;
+}
+
+.slots-placeholder {
+  color: var(--texto-suave);
+  font-size: 0.88rem;
+  padding: 10px 0;
+}
+
+.slot {
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border: 1.5px solid var(--lila-medio);
+  background: var(--blanco);
+  color: var(--lila-fuerte);
+  cursor: pointer;
+  transition: background var(--transicion), border-color var(--transicion), transform var(--transicion);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.slot:hover:not(.ocupado) {
+  background: var(--lila-claro);
+  border-color: var(--lila-oscuro);
+  transform: translateY(-1px);
+}
+
+.slot.seleccionado {
+  background: linear-gradient(135deg, var(--lila-fuerte), var(--rosa-oscuro));
+  color: var(--blanco);
+  border-color: transparent;
+}
+
+.slot.ocupado {
+  background: var(--beige-medio);
+  color: var(--beige-oscuro);
+  border-color: var(--beige-oscuro);
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* ============================================================
+   RESUMEN DE CITA
+   ============================================================ */
+
+.resumen-cita {
+  background: linear-gradient(135deg, var(--lila-claro), var(--rosa-claro));
+  border: 1.5px solid var(--lila-medio);
+  border-radius: var(--radio);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+.resumen-cita h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 10px;
+}
+
+.resumen-fila {
+  display: flex;
+  gap: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 5px;
+  color: var(--texto-medio);
+}
+
+.resumen-fila span:first-child {
+  font-weight: 500;
+  color: var(--texto-oscuro);
+  min-width: 90px;
+}
+
+/* ============================================================
+   TARJETAS DE CITAS (MIS CITAS)
+   ============================================================ */
+
+.lista-citas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+.cita-card {
+  background: var(--blanco);
+  border: 1.5px solid var(--beige-oscuro);
+  border-radius: var(--radio-grande);
+  padding: 24px;
+  box-shadow: var(--sombra-suave);
+  transition: box-shadow var(--transicion), border-color var(--transicion);
+}
+
+.cita-card:hover {
+  border-color: var(--lila-medio);
+  box-shadow: var(--sombra-media);
+}
+
+.cita-card-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.cita-fecha-hora {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  line-height: 1.3;
+}
+
+.cita-hora-detalle {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  margin-top: 2px;
+}
+
+/* Etiquetas de estado */
+.estado-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.estado-pendiente   { background: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+.estado-confirmada  { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+.estado-cancelada   { background: var(--rosa-claro); color: var(--rosa-fuerte); border: 1px solid var(--rosa-medio); }
+.estado-reprogramada{ background: var(--lila-claro); color: var(--lila-fuerte); border: 1px solid var(--lila-medio); }
+.estado-completada  { background: var(--beige-medio); color: var(--texto-medio); border: 1px solid var(--beige-oscuro); }
+
+.cita-doctor {
+  font-size: 0.9rem;
+  color: var(--texto-medio);
+  margin-bottom: 6px;
+}
+
+.cita-doctor strong {
+  color: var(--texto-oscuro);
+}
+
+.cita-especialidad {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+  margin-bottom: 14px;
+}
+
+.cita-acciones {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sin-citas {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--texto-suave);
+}
+
+.sin-citas p:first-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--texto-medio);
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   PANEL ADMIN
+   ============================================================ */
+
+.filtros-admin {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filtros-admin .campo-grupo {
+  margin-bottom: 0;
+  min-width: 160px;
+}
+
+.tabla-contenedor {
+  background: var(--blanco);
+  border: 1.5px solid var(--beige-oscuro);
+  border-radius: var(--radio-grande);
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+}
+
+.tabla-admin {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.tabla-admin thead {
+  background: linear-gradient(135deg, var(--lila-claro), var(--beige-claro));
+}
+
+.tabla-admin th {
+  padding: 14px 18px;
+  text-align: left;
+  font-weight: 500;
+  color: var(--texto-medio);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1.5px solid var(--beige-oscuro);
+  white-space: nowrap;
+}
+
+.tabla-admin td {
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--beige-claro);
+  color: var(--texto-oscuro);
+  vertical-align: middle;
+}
+
+.tabla-admin tr:last-child td { border-bottom: none; }
+
+.tabla-admin tr:hover td {
+  background: rgba(232, 224, 240, 0.18);
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(58, 45, 64, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal-caja {
+  background: var(--blanco);
+  border-radius: var(--radio-grande);
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--sombra-media);
+  border: 1.5px solid var(--lila-medio);
+}
+
+.modal-caja-ancha {
+  max-width: 620px;
+  max-height: 82vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 24px;
+}
+
+.modal-acciones {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.modal-acciones .btn-principal {
+  width: auto;
+  padding: 10px 24px;
+}
+
+/* ============================================================
+   TABLA DE DOCTORES ADMIN
+   ============================================================ */
+
+.doctor-activo-si {
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.doctor-activo-no {
+  color: var(--rosa-fuerte);
+  font-weight: 500;
+}
+
+.horarios-admin-lista {
+  display: grid;
+  gap: 10px;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-bottom: 18px;
+}
+
+.horario-form {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px auto;
+  gap: 10px;
+  align-items: end;
+  margin-bottom: 12px;
+}
+
+.horario-form .btn-secundario {
+  height: 42px;
+  white-space: nowrap;
+}
+
+.horario-admin-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--lila-medio);
+  border-radius: var(--radio-medio);
+  background: var(--beige-claro);
+}
+
+.horario-admin-dia {
+  font-weight: 600;
+  color: var(--texto-oscuro);
+}
+
+.horario-admin-hora {
+  margin-top: 3px;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.switch-horario {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--texto-medio);
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.switch-horario input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--lila-fuerte);
+}
+
+/* ============================================================
+   LANDING PAGE
+   ============================================================ */
+
+#pantalla-landing {
+  background: var(--crema);
+  overflow-x: hidden;
+}
+
+/* Navbar de la landing */
+.landing-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 64px;
+  height: 68px;
+  background: rgba(255, 250, 244, 0.90);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--beige-oscuro);
+}
+
+.landing-nav-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+}
+
+.landing-nav-btn {
+  width: auto;
+  padding: 10px 28px;
+  margin: 0;
+}
+
+/* Hero */
+.landing-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  min-height: 88vh;
+  padding: 80px 64px;
+  overflow: hidden;
+}
+
+.landing-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.landing-hero-contenido {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-etiqueta {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--lila-fuerte);
+  background: var(--lila-claro);
+  border: 1px solid var(--lila-medio);
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 20px;
+}
+
+.landing-etiqueta.centrado {
+  display: block;
+  text-align: center;
+}
+
+.landing-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.8rem;
+  font-weight: 700;
+  color: var(--texto-oscuro);
+  line-height: 0.96;
+  margin-bottom: 16px;
+  max-width: 560px;
+}
+
+.landing-subtitulo-hero {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--lila-fuerte);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.landing-descripcion {
+  font-size: 1rem;
+  color: var(--texto-medio);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 36px;
+}
+
+.landing-hero-acciones {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.landing-btn-grande {
+  width: auto;
+  padding: 14px 32px;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Lado derecho del hero: tarjetas flotantes */
+.landing-hero-imagen {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 340px;
+}
+
+.landing-hero-foto {
+  width: min(100%, 560px);
+  aspect-ratio: 36 / 28;
+  object-fit: contain;
+  border-radius: 28px;
+  box-shadow: var(--sombra-media);
+  border: 1.5px solid rgba(255, 255, 255, 0.80);
+  background: var(--blanco);
+}
+
+.landing-card-flotante {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.80);
+  border-radius: 18px;
+  padding: 18px 24px;
+  box-shadow: var(--sombra-media);
+  width: 280px;
+  left: 0;
+  bottom: 42px;
+}
+
+.card-flotante-2 {
+  left: auto;
+  right: -10px;
+  bottom: 118px;
+}
+
+.card-flotante-icono {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--lila-fuerte), var(--rosa-oscuro));
+  border-radius: 12px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Cruz medica en icono de tarjeta flotante */
+.card-flotante-icono::before,
+.card-flotante-icono::after {
+  content: '';
+  position: absolute;
+  background: var(--blanco);
+  border-radius: 2px;
+}
+.card-flotante-icono::before { width: 4px; height: 20px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.card-flotante-icono::after  { width: 20px; height: 4px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
+/* Icono reloj */
+.icono-reloj {
+  background: linear-gradient(135deg, var(--rosa-oscuro), var(--lila-fuerte));
+}
+.icono-reloj::before { width: 3px; height: 10px; top: 30%; left: 50%; transform: translateX(-50%); }
+.icono-reloj::after  { width: 10px; height: 3px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+.card-flotante-titulo {
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: var(--texto-oscuro);
+}
+
+.card-flotante-sub {
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+  margin-top: 2px;
+}
+
+/* Secciones internas de la landing */
+.landing-seccion-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.landing-seccion-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 48px;
+  line-height: 1.2;
+}
+
+.landing-seccion-titulo.centrado {
+  text-align: center;
+}
+
+/* Pasos de como funciona */
+.landing-pasos {
+  padding: 96px 0;
+  background: var(--blanco);
+}
+
+.landing-pasos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.landing-paso {
+  text-align: center;
+  padding: 32px 20px;
+  border-radius: var(--radio-grande);
+  transition: box-shadow var(--transicion);
+}
+
+.landing-paso:hover {
+  box-shadow: var(--sombra-media);
+}
+
+.landing-paso-num {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--lila-fuerte), var(--rosa-oscuro));
+  color: var(--blanco);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 auto 18px;
+}
+
+.landing-paso h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 10px;
+}
+
+.landing-paso p {
+  font-size: 0.88rem;
+  color: var(--texto-medio);
+  line-height: 1.65;
+}
+
+/* Especialidades */
+.landing-especialidades {
+  padding: 96px 0;
+  background: linear-gradient(160deg, var(--beige-claro), var(--lila-claro));
+}
+
+.landing-esp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.landing-esp-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.80);
+  border-radius: var(--radio-grande);
+  padding: 18px 18px 28px;
+  box-shadow: var(--sombra-suave);
+  transition: box-shadow var(--transicion), transform var(--transicion);
+}
+
+.landing-esp-card:hover {
+  box-shadow: var(--sombra-media);
+  transform: translateY(-3px);
+}
+
+.landing-esp-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 18 / 11;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(216, 200, 223, 0.70);
+}
+
+.landing-esp-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 10px;
+}
+
+.landing-esp-card p {
+  font-size: 0.88rem;
+  color: var(--texto-medio);
+  line-height: 1.65;
+}
+
+/* CTA final */
+.landing-cta {
+  padding: 96px 0;
+  background: var(--blanco);
+}
+
+.landing-cta-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--texto-oscuro);
+  margin-bottom: 16px;
+}
+
+.landing-cta-sub {
+  font-size: 1rem;
+  color: var(--texto-medio);
+  margin-bottom: 36px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
+
+/* Footer */
+.landing-footer {
+  background: var(--beige-claro);
+  border-top: 1px solid var(--beige-oscuro);
+  padding: 36px 64px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.landing-footer p {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ============================================================
+   ADMIN - CALENDARIO MENSUAL
+   ============================================================ */
+
+.admin-cal-wrap {
+  background: var(--blanco);
+  border: 1.5px solid var(--beige-oscuro);
+  border-radius: var(--radio-grande);
+  padding: 28px;
+  max-width: 640px;
+  box-shadow: var(--sombra-suave);
+  margin-bottom: 28px;
+}
+
+.admin-cal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+#admin-cal-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  text-transform: capitalize;
+}
+
+/* Grilla del calendario admin — dias mas grandes para mostrar contadores */
+.admin-cal-grid {
+  gap: 4px;
+}
+
+.admin-cal-grid .cal-dia {
+  aspect-ratio: unset;
+  height: 54px;
+  flex-direction: column;
+  gap: 2px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+}
+
+.cal-dia-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--lila-fuerte), var(--rosa-oscuro));
+  color: var(--blanco);
+  border-radius: 10px;
+  padding: 1px 6px;
+  line-height: 1.4;
+}
+
+/* Panel de detalle al hacer clic en un dia del calendario admin */
+.admin-cal-detalle {
+  background: var(--blanco);
+  border: 1.5px solid var(--lila-medio);
+  border-radius: var(--radio-grande);
+  padding: 24px 28px;
+  box-shadow: var(--sombra-suave);
+}
+
+.admin-cal-detalle h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   ADMIN - AGENDA DEL DIA
+   ============================================================ */
+
+.agenda-controles {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 28px;
+}
+
+.agenda-controles .campo-grupo {
+  margin-bottom: 0;
+  min-width: 200px;
+}
+
+.agenda-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.agenda-bloque {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+.agenda-hora {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--lila-fuerte);
+  border-right: 2px solid var(--lila-medio);
+}
+
+.agenda-cita-card {
+  margin-left: 20px;
+  background: var(--blanco);
+  border: 1.5px solid var(--beige-oscuro);
+  border-left: 4px solid var(--lila-fuerte);
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: var(--sombra-suave);
+  transition: border-color var(--transicion);
+}
+
+.agenda-cita-card:hover {
+  border-left-color: var(--rosa-oscuro);
+}
+
+.agenda-cita-paciente {
+  font-weight: 500;
+  color: var(--texto-oscuro);
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.agenda-cita-info {
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.agenda-vacio {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--texto-suave);
+}
+
+/* ============================================================
+   ADMIN - GESTION DE DOCTORES (CRUD)
+   ============================================================ */
+
+.seccion-encabezado-flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.btn-nuevo-doctor {
+  width: auto;
+  padding: 10px 24px;
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   RESPONSIVE BASICO
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .auth-container {
+    margin: 20px;
+    padding: 32px 24px;
+  }
+
+  .campos-dobles {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .navbar-menu { display: none; }
+
+  .contenido-principal {
+    padding: 24px 16px;
+  }
+
+  .panel-agendar {
+    grid-template-columns: 1fr;
+  }
+
+  #paso-4 { grid-column: 1; }
+
+  .filtros-admin {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tabla-contenedor {
+    overflow-x: auto;
+  }
+
+  .landing-nav {
+    padding: 0 20px;
+  }
+
+  .landing-hero {
+    grid-template-columns: 1fr;
+    padding: 60px 20px;
+    min-height: auto;
+  }
+
+  .landing-hero-imagen {
+    min-height: auto;
+    gap: 12px;
+  }
+
+  .landing-card-flotante,
+  .card-flotante-2 {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+  }
+
+  .landing-titulo { font-size: 3rem; }
+
+  .landing-subtitulo-hero { font-size: 1.35rem; }
+
+  .landing-seccion-wrap { padding: 0 20px; }
+
+  .landing-pasos-grid  { grid-template-columns: 1fr 1fr; }
+  .landing-esp-grid    { grid-template-columns: 1fr; }
+
+  .landing-footer { flex-direction: column; padding: 28px 20px; }
+
+  .seccion-encabezado-flex { flex-direction: column; }
+
+  .agenda-controles { flex-direction: column; align-items: stretch; }
+
+  .horario-form {
+    grid-template-columns: 1fr;
+  }
+}

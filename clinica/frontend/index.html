@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinica Los Reyes - Sistema de Citas</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== LANDING PAGE ========== -->
+  <div id="pantalla-landing" class="pantalla activa">
+
+    <!-- Navbar de la landing -->
+    <header class="landing-nav">
+      <div class="landing-nav-marca">
+        <div class="marca-icono small"></div>
+        <span>Clinica Los Reyes</span>
+      </div>
+      <button class="btn-principal landing-nav-btn" id="btn-landing-entrar">Agendar cita</button>
+    </header>
+
+    <!-- Hero principal -->
+    <section class="landing-hero">
+      <div class="landing-hero-bg">
+        <div class="auth-orb orb-1"></div>
+        <div class="auth-orb orb-2"></div>
+        <div class="auth-orb orb-3"></div>
+      </div>
+      <div class="landing-hero-contenido">
+        <p class="landing-etiqueta">Atencion medica general</p>
+        <h1 class="landing-titulo">Clinica Los Reyes</h1>
+        <p class="landing-subtitulo-hero">Tu salud, nuestra prioridad las 24 horas</p>
+        <p class="landing-descripcion">Agenda tu consulta en linea en menos de un minuto. Sin llamadas, sin esperas. Nuestros medicos te atienden en el horario que mejor te convenga.</p>
+        <div class="landing-hero-acciones">
+          <button class="btn-principal landing-btn-grande" id="btn-landing-agendar">Agendar mi cita</button>
+          <button class="btn-secundario landing-btn-grande" id="btn-landing-saber">Como funciona</button>
+        </div>
+      </div>
+      <div class="landing-hero-imagen">
+        <img class="landing-hero-foto" src="/assets/hero-clinic.png" alt="Equipo medico de Clinica Los Reyes" />
+        <div class="landing-card-flotante">
+          <div class="card-flotante-icono"></div>
+          <div>
+            <div class="card-flotante-titulo">Disponibilidad en tiempo real</div>
+            <div class="card-flotante-sub">Horarios actualizados al instante</div>
+          </div>
+        </div>
+        <div class="landing-card-flotante card-flotante-2">
+          <div class="card-flotante-icono icono-reloj"></div>
+          <div>
+            <div class="card-flotante-titulo">Abierto 24 / 7</div>
+            <div class="card-flotante-sub">Siempre hay un medico disponible</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="landing-pasos" id="como-funciona">
+      <div class="landing-seccion-wrap">
+        <p class="landing-etiqueta centrado">Proceso simple</p>
+        <h2 class="landing-seccion-titulo centrado">Como agendar tu cita</h2>
+        <div class="landing-pasos-grid">
+          <div class="landing-paso">
+            <div class="landing-paso-num">1</div>
+            <h3>Crea tu cuenta</h3>
+            <p>Registrate con tu correo electronico. Solo toma un momento y tus datos quedan protegidos.</p>
+          </div>
+          <div class="landing-paso">
+            <div class="landing-paso-num">2</div>
+            <h3>Elige medico y fecha</h3>
+            <p>Selecciona el medico de tu preferencia y consulta los horarios disponibles en el calendario.</p>
+          </div>
+          <div class="landing-paso">
+            <div class="landing-paso-num">3</div>
+            <h3>Confirma tu cita</h3>
+            <p>Elige el bloque horario que mejor se adapte a ti y confirma. Recibiras una notificacion de inmediato.</p>
+          </div>
+          <div class="landing-paso">
+            <div class="landing-paso-num">4</div>
+            <h3>Asiste a tu consulta</h3>
+            <p>Presentate en la clinica en tu horario. Puedes cancelar o reprogramar desde tu perfil cuando lo necesites.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Medicos / especialidades -->
+    <section class="landing-especialidades">
+      <div class="landing-seccion-wrap">
+        <p class="landing-etiqueta centrado">Nuestro equipo</p>
+        <h2 class="landing-seccion-titulo centrado">Especialidades disponibles</h2>
+        <div class="landing-esp-grid">
+          <div class="landing-esp-card">
+            <img class="landing-esp-img" src="/assets/especialidad-general.png" alt="Medicina general" />
+            <h3>Medicina General</h3>
+            <p>Consultas de primer contacto, diagnostico y seguimiento de padecimientos comunes.</p>
+          </div>
+          <div class="landing-esp-card">
+            <img class="landing-esp-img" src="/assets/especialidad-pediatria.png" alt="Pediatria" />
+            <h3>Pediatria</h3>
+            <p>Atencion medica especializada para ninos y adolescentes en todas las etapas de su desarrollo.</p>
+          </div>
+          <div class="landing-esp-card">
+            <img class="landing-esp-img" src="/assets/especialidad-urgencias.png" alt="Urgencias" />
+            <h3>Urgencias</h3>
+            <p>Atencion inmediata para situaciones que requieren intervencion medica rapida, disponible toda la noche.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="landing-cta">
+      <div class="landing-seccion-wrap centrado">
+        <h2 class="landing-cta-titulo">Listo para agendar?</h2>
+        <p class="landing-cta-sub">Unete a los pacientes que ya gestionan sus citas en linea con Clinica Los Reyes.</p>
+        <button class="btn-principal landing-btn-grande" id="btn-landing-cta">Crear mi cuenta gratis</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div class="landing-nav-marca">
+        <div class="marca-icono small"></div>
+        <span>Clinica Los Reyes</span>
+      </div>
+      <p>Atencion medica general las 24 horas del dia, los 7 dias de la semana.</p>
+    </footer>
+
+  </div>
+  <div id="pantalla-auth" class="pantalla oculto">
+    <div class="auth-bg">
+      <div class="auth-orb orb-1"></div>
+      <div class="auth-orb orb-2"></div>
+      <div class="auth-orb orb-3"></div>
+    </div>
+
+    <div class="auth-container">
+      <div class="auth-marca">
+        <div class="marca-icono"></div>
+        <h1 class="marca-nombre">Clinica Los Reyes</h1>
+        <p class="marca-subtitulo">Atencion medica las 24 horas</p>
+      </div>
+
+      <!-- Formulario de inicio de sesion -->
+      <div id="form-login" class="auth-form">
+        <h2 class="form-titulo">Iniciar sesion</h2>
+        <div class="campo-grupo">
+          <label for="login-email">Correo electronico</label>
+          <input type="email" id="login-email" placeholder="correo@ejemplo.com" autocomplete="email" />
+        </div>
+        <div class="campo-grupo">
+          <label for="login-password">Contrasena</label>
+          <input type="password" id="login-password" placeholder="Tu contrasena" autocomplete="current-password" />
+        </div>
+        <div id="login-error" class="mensaje-error oculto"></div>
+        <button class="btn-principal" id="btn-login">Entrar</button>
+        <p class="auth-cambio">
+          No tienes cuenta?
+          <button class="btn-texto" id="btn-ir-registro">Registrate aqui</button>
+        </p>
+      </div>
+
+      <!-- Formulario de registro -->
+      <div id="form-registro" class="auth-form oculto">
+        <h2 class="form-titulo">Crear cuenta</h2>
+        <div class="campos-dobles">
+          <div class="campo-grupo">
+            <label for="reg-nombre">Nombre</label>
+            <input type="text" id="reg-nombre" placeholder="Tu nombre" />
+          </div>
+          <div class="campo-grupo">
+            <label for="reg-apellido">Apellido</label>
+            <input type="text" id="reg-apellido" placeholder="Tu apellido" />
+          </div>
+        </div>
+        <div class="campo-grupo">
+          <label for="reg-email">Correo electronico</label>
+          <input type="email" id="reg-email" placeholder="correo@ejemplo.com" />
+        </div>
+        <div class="campo-grupo">
+          <label for="reg-telefono">Telefono (opcional)</label>
+          <input type="tel" id="reg-telefono" placeholder="55 1234 5678" />
+        </div>
+        <div class="campo-grupo">
+          <label for="reg-password">Contrasena</label>
+          <input type="password" id="reg-password" placeholder="Minimo 8 caracteres" />
+        </div>
+        <div id="reg-error" class="mensaje-error oculto"></div>
+        <div id="reg-exito" class="mensaje-exito oculto"></div>
+        <button class="btn-principal" id="btn-registro">Crear cuenta</button>
+        <p class="auth-cambio">
+          Ya tienes cuenta?
+          <button class="btn-texto" id="btn-ir-login">Inicia sesion</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== PANTALLA PRINCIPAL: DASHBOARD PACIENTE ========== -->
+  <div id="pantalla-principal" class="pantalla oculto">
+
+    <!-- Barra de navegacion superior -->
+    <header class="navbar">
+      <div class="navbar-marca">
+        <div class="marca-icono small"></div>
+        <span>Clinica Los Reyes</span>
+      </div>
+      <nav class="navbar-menu">
+        <button class="nav-btn activo" data-seccion="calendario">Agendar cita</button>
+        <button class="nav-btn" data-seccion="mis-citas">Mis citas</button>
+      </nav>
+      <div class="navbar-usuario">
+        <span id="nombre-usuario-nav"></span>
+        <button class="btn-cerrar-sesion" id="btn-logout">Salir</button>
+      </div>
+    </header>
+
+    <main class="contenido-principal">
+
+      <!-- Seccion: Calendario para agendar cita -->
+      <section id="seccion-calendario" class="seccion activa">
+        <div class="seccion-encabezado">
+          <h2>Agendar nueva cita</h2>
+          <p>Selecciona medico, fecha y horario disponible</p>
+        </div>
+
+        <div class="panel-agendar">
+          <!-- Paso 1: seleccionar doctor -->
+          <div class="paso-card" id="paso-1">
+            <div class="paso-numero">1</div>
+            <div class="paso-contenido">
+              <h3>Selecciona el medico</h3>
+              <div class="campo-grupo">
+                <label for="select-doctor">Medico</label>
+                <select id="select-doctor">
+                  <option value="">Cargando medicos...</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paso 2: seleccionar fecha en el calendario -->
+          <div class="paso-card" id="paso-2">
+            <div class="paso-numero">2</div>
+            <div class="paso-contenido">
+              <h3>Elige la fecha</h3>
+              <div class="calendario-wrap">
+                <div class="cal-nav">
+                  <button class="cal-btn-nav" id="cal-prev">&#8249;</button>
+                  <span id="cal-titulo-mes"></span>
+                  <button class="cal-btn-nav" id="cal-next">&#8250;</button>
+                </div>
+                <div class="cal-dias-semana">
+                  <span>Dom</span><span>Lun</span><span>Mar</span>
+                  <span>Mie</span><span>Jue</span><span>Vie</span><span>Sab</span>
+                </div>
+                <div id="cal-grid" class="cal-grid"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paso 3: seleccionar slot de horario -->
+          <div class="paso-card" id="paso-3">
+            <div class="paso-numero">3</div>
+            <div class="paso-contenido">
+              <h3>Escoge el horario</h3>
+              <div id="slots-contenedor" class="slots-contenedor">
+                <p class="slots-placeholder">Selecciona un medico y una fecha para ver disponibilidad</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paso 4: confirmacion -->
+          <div class="paso-card" id="paso-4">
+            <div class="paso-numero">4</div>
+            <div class="paso-contenido">
+              <h3>Motivo de la consulta</h3>
+              <div class="campo-grupo">
+                <label for="motivo-cita">Descripcion breve (opcional)</label>
+                <textarea id="motivo-cita" placeholder="Describe brevemente el motivo de tu visita..." rows="3"></textarea>
+              </div>
+              <div id="resumen-cita" class="resumen-cita oculto">
+                <h4>Resumen de tu cita</h4>
+                <div id="resumen-contenido"></div>
+              </div>
+              <div id="agendar-error" class="mensaje-error oculto"></div>
+              <div id="agendar-exito" class="mensaje-exito oculto"></div>
+              <button class="btn-principal" id="btn-agendar" disabled>Confirmar cita</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seccion: Historial de citas del usuario -->
+      <section id="seccion-mis-citas" class="seccion oculto">
+        <div class="seccion-encabezado">
+          <h2>Mis citas</h2>
+          <p>Historial y gestion de tus citas medicas</p>
+        </div>
+        <div id="lista-mis-citas" class="lista-citas">
+          <div class="cargando">Cargando tus citas...</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ========== PANTALLA ADMIN ========== -->
+  <div id="pantalla-admin" class="pantalla oculto">
+
+    <header class="navbar navbar-admin">
+      <div class="navbar-marca">
+        <div class="marca-icono small"></div>
+        <span>Clinica Los Reyes <span class="badge-admin">Admin</span></span>
+      </div>
+      <nav class="navbar-menu">
+        <button class="nav-btn activo" data-seccion-admin="todas-citas">Todas las citas</button>
+        <button class="nav-btn" data-seccion-admin="calendario-admin">Calendario</button>
+        <button class="nav-btn" data-seccion-admin="agenda-admin">Agenda del dia</button>
+        <button class="nav-btn" data-seccion-admin="doctores-admin">Médicos</button>
+      </nav>
+      <div class="navbar-usuario">
+        <span id="nombre-admin-nav"></span>
+        <button class="btn-cerrar-sesion" id="btn-logout-admin">Salir</button>
+      </div>
+    </header>
+
+    <main class="contenido-principal">
+
+      <!-- Seccion admin: todas las citas -->
+      <section id="seccion-todas-citas" class="seccion activa">
+        <div class="seccion-encabezado">
+          <h2>Gestion de citas</h2>
+        </div>
+        <div class="filtros-admin">
+          <div class="campo-grupo">
+            <label for="filtro-fecha">Fecha</label>
+            <input type="date" id="filtro-fecha" />
+          </div>
+          <div class="campo-grupo">
+            <label for="filtro-estado">Estado</label>
+            <select id="filtro-estado">
+              <option value="">Todos</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="confirmada">Confirmada</option>
+              <option value="cancelada">Cancelada</option>
+              <option value="completada">Completada</option>
+            </select>
+          </div>
+          <button class="btn-secundario" id="btn-filtrar">Filtrar</button>
+        </div>
+        <div id="tabla-citas-admin" class="tabla-contenedor">
+          <div class="cargando">Cargando citas...</div>
+        </div>
+      </section>
+
+      <!-- Seccion admin: calendario mensual de citas -->
+      <section id="seccion-calendario-admin" class="seccion oculto">
+        <div class="seccion-encabezado">
+          <h2>Calendario de citas</h2>
+          <p>Vista mensual de todas las citas agendadas</p>
+        </div>
+        <div class="admin-cal-wrap">
+          <div class="admin-cal-nav">
+            <button class="cal-btn-nav" id="admin-cal-prev">&#8249;</button>
+            <span id="admin-cal-titulo"></span>
+            <button class="cal-btn-nav" id="admin-cal-next">&#8250;</button>
+          </div>
+          <div class="cal-dias-semana">
+            <span>Dom</span><span>Lun</span><span>Mar</span>
+            <span>Mie</span><span>Jue</span><span>Vie</span><span>Sab</span>
+          </div>
+          <div id="admin-cal-grid" class="cal-grid admin-cal-grid"></div>
+        </div>
+        <div id="admin-cal-detalle" class="admin-cal-detalle oculto">
+          <h3 id="admin-cal-detalle-titulo"></h3>
+          <div id="admin-cal-detalle-lista"></div>
+        </div>
+      </section>
+
+      <!-- Seccion admin: agenda del dia -->
+      <section id="seccion-agenda-admin" class="seccion oculto">
+        <div class="seccion-encabezado">
+          <h2>Agenda del dia</h2>
+          <p>Citas programadas ordenadas por horario</p>
+        </div>
+        <div class="agenda-controles">
+          <div class="campo-grupo">
+            <label for="agenda-fecha">Fecha</label>
+            <input type="date" id="agenda-fecha" />
+          </div>
+          <button class="btn-secundario" id="btn-cargar-agenda">Ver agenda</button>
+        </div>
+        <div id="agenda-contenedor" class="agenda-contenedor">
+          <p class="slots-placeholder">Selecciona una fecha para ver la agenda del dia</p>
+        </div>
+      </section>
+
+      <!-- Seccion admin: gestion completa de medicos -->
+      <section id="seccion-doctores-admin" class="seccion oculto">
+        <div class="seccion-encabezado seccion-encabezado-flex">
+          <div>
+            <h2>Médicos</h2>
+            <p>Administra el catalogo de médicos de la clinica</p>
+          </div>
+          <button class="btn-principal btn-nuevo-doctor" id="btn-nuevo-doctor">Agregar médico</button>
+        </div>
+        <div id="tabla-doctores-admin" class="tabla-contenedor">
+          <div class="cargando">Cargando médicos...</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal para cambiar estado de cita (admin) -->
+  <div id="modal-estado" class="modal-overlay oculto">
+    <div class="modal-caja">
+      <h3 class="modal-titulo">Actualizar estado de cita</h3>
+      <input type="hidden" id="modal-cita-id" />
+      <div class="campo-grupo">
+        <label for="modal-nuevo-estado">Nuevo estado</label>
+        <select id="modal-nuevo-estado">
+          <option value="pendiente">Pendiente</option>
+          <option value="confirmada">Confirmada</option>
+          <option value="cancelada">Cancelada</option>
+          <option value="completada">Completada</option>
+        </select>
+      </div>
+      <div class="campo-grupo">
+        <label for="modal-notas">Notas internas</label>
+        <textarea id="modal-notas" rows="3" placeholder="Notas para el expediente..."></textarea>
+      </div>
+      <div class="modal-acciones">
+        <button class="btn-secundario" id="modal-cancelar">Cancelar</button>
+        <button class="btn-principal" id="modal-guardar">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para agregar / editar doctor -->
+  <div id="modal-doctor" class="modal-overlay oculto">
+    <div class="modal-caja">
+      <h3 class="modal-titulo" id="modal-doctor-titulo">Agregar médico</h3>
+      <input type="hidden" id="modal-doctor-id" />
+      <div class="campos-dobles">
+        <div class="campo-grupo">
+          <label for="md-nombre">Nombre</label>
+          <input type="text" id="md-nombre" placeholder="Nombre" />
+        </div>
+        <div class="campo-grupo">
+          <label for="md-apellido">Apellido</label>
+          <input type="text" id="md-apellido" placeholder="Apellido" />
+        </div>
+      </div>
+      <div class="campo-grupo">
+        <label for="md-cedula">Cedula profesional</label>
+        <input type="text" id="md-cedula" placeholder="Ej. MED-005" />
+      </div>
+      <div class="campo-grupo">
+        <label for="md-especialidad">Especialidad</label>
+        <select id="md-especialidad">
+          <option value="">Cargando...</option>
+        </select>
+      </div>
+      <div id="modal-doctor-error" class="mensaje-error oculto"></div>
+      <div class="modal-acciones">
+        <button class="btn-secundario" id="modal-doctor-cancelar">Cancelar</button>
+        <button class="btn-principal" id="modal-doctor-guardar">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para activar / desactivar horarios del medico -->
+  <div id="modal-horarios" class="modal-overlay oculto">
+    <div class="modal-caja modal-caja-ancha">
+      <h3 class="modal-titulo" id="modal-horarios-titulo">Horarios activos</h3>
+      <input type="hidden" id="modal-horarios-doctor-id" />
+      <div class="horario-form">
+        <div class="campo-grupo">
+          <label for="mh-dia">Dia</label>
+          <select id="mh-dia">
+            <option value="1">Lunes</option>
+            <option value="2">Martes</option>
+            <option value="3">Miercoles</option>
+            <option value="4">Jueves</option>
+            <option value="5">Viernes</option>
+            <option value="6">Sabado</option>
+            <option value="0">Domingo</option>
+          </select>
+        </div>
+        <div class="campo-grupo">
+          <label for="mh-inicio">Inicio</label>
+          <input type="time" id="mh-inicio" />
+        </div>
+        <div class="campo-grupo">
+          <label for="mh-fin">Fin</label>
+          <input type="time" id="mh-fin" />
+        </div>
+        <button class="btn-secundario" id="modal-horarios-agregar">Agregar horario</button>
+      </div>
+      <div id="modal-horarios-error" class="mensaje-error oculto"></div>
+      <div id="modal-horarios-lista" class="horarios-admin-lista">
+        <div class="cargando">Cargando horarios...</div>
+      </div>
+      <div class="modal-acciones">
+        <button class="btn-secundario" id="modal-horarios-cerrar">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts del frontend -->
+  <script src="/js/api.js"></script>
+  <script src="/js/calendario.js"></script>
+  <script src="/js/citas.js"></script>
+  <script src="/js/admin.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
